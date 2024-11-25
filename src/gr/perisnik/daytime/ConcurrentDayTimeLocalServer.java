@@ -19,6 +19,8 @@ import java.util.Date;
 public class ConcurrentDayTimeLocalServer extends Thread {
     // Server socket to listen for connections
     private static ServerSocket serverFD;
+    // Counter to count the threads
+    private static int threadCounter = 0;
 
     // Flag to control the server loop
     private boolean running = true;
@@ -44,6 +46,7 @@ public class ConcurrentDayTimeLocalServer extends Thread {
                 // Accept an incoming connection
                 Socket connectedFD = serverFD.accept();
                 // Create a new thread to handle the client connection
+                threadCounter++;
                 new ClientHandler(connectedFD).start();
             }
         } catch (IOException e) {
@@ -101,7 +104,7 @@ public class ConcurrentDayTimeLocalServer extends Thread {
                 // Flush the writer to ensure all data is sent
                 bufferedWriter.flush();
 
-                System.out.println("new thread...");
+                System.out.println(threadCounter + " new thread...");
 
                 // Close the BufferedWriter
                 bufferedWriter.close();
