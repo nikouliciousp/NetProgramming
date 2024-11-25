@@ -12,6 +12,15 @@ import java.net.Socket;
  *
  * The program connects to the server at 'time.nist.gov' on port 13, reads the
  * server's response, and prints the time and date to the console.
+ *
+ * "We use the InputStreamReader to convert the byte data from the socket's
+ * input stream into characters.
+ *
+ * We use the BufferedReader for efficient reading of characters into lines,
+ * enhancing the performance of the reading process."
+ *
+ * @version 0.1
+ * @author Peris Nik
  */
 public class DayTimeClient {
 
@@ -32,6 +41,7 @@ public class DayTimeClient {
 
             // Create a socket and connect to the server at the resolved address and port
             Socket socketFD = new Socket(serverAddress, serverPort);
+
             // Create a BufferedReader to read the server's response from the socket's input stream
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(socketFD.getInputStream()));
 
