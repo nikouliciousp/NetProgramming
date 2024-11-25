@@ -20,7 +20,7 @@ import java.util.Date;
  */
 public class DayTimeLocalServer extends Thread {
     // Server socket to listen for connections
-    private ServerSocket serverFD;
+    private static ServerSocket serverFD;
 
     // Flag to control the server loop
     private boolean running = true;
