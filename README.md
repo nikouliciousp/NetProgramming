@@ -24,7 +24,7 @@ This project demonstrates a simple DayTime server and client implementation in J
 2. Run the `DayTimeServer`:
 
     ```sh
-    java gr.perisnik.daytime.DayTimeServer
+    java gr.perisnik.daytime.DayTimeLocalServer
     ```
 
 ### Running the DayTime Client

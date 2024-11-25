@@ -1,28 +1,22 @@
 package gr.perisnik.daytime;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.InetAddress;
-import java.net.Socket;
+        import java.io.BufferedReader;
+        import java.io.IOException;
+        import java.io.InputStreamReader;
+        import java.net.InetAddress;
+        import java.net.Socket;
 
 /**
- * DayTimeClient is a simple Java program that connects to a daytime server
- * and retrieves the current time and date from the server.
+ * DayTimeClient is a simple Java program that connects to a local DayTime server
+ * running on port 13 and retrieves the current time and date from the server.
  *
- * The program connects to the server at 'time.nist.gov' on port 13, reads the
+ * The program connects to the server at '127.0.0.1' on port 13, reads the
  * server's response, and prints the time and date to the console.
- *
- * "We use the InputStreamReader to convert the byte data from the socket's
- * input stream into characters.
- *
- * We use the BufferedReader for efficient reading of characters into lines,
- * enhancing the performance of the reading process."
  *
  * @version 0.1
  * @author Peris Nik
  */
-public class DayTimeClient {
+public class DayTimeClientForLocalServer {
 
     /**
      * Main method to run the DayTimeClient.
@@ -34,8 +28,8 @@ public class DayTimeClient {
         StringBuilder stringBuilder = new StringBuilder();
 
         try {
-            // Resolve the server address from the hostname 'time.nist.gov'
-            InetAddress serverAddress = InetAddress.getByName("time.nist.gov");
+            // Resolve the server address from the hostname '127.0.0.1'
+            InetAddress serverAddress = InetAddress.getByName("127.0.0.1");
             // Define the port number to connect to on the server
             int serverPort = 13;
 
@@ -53,7 +47,7 @@ public class DayTimeClient {
             }
 
             // Print the server's response to the console
-            System.out.println("Daytime Server says: " + stringBuilder.toString());
+            System.out.println("Daytime from local Server says: " + stringBuilder.toString());
 
             // Close the socket connection
             socketFD.close();

@@ -18,7 +18,7 @@ import java.util.Date;
  * @version 0.1
  * @author Peris Nik
  */
-public class DayTimeServer extends Thread {
+public class DayTimeLocalServer extends Thread {
     // Server socket to listen for connections
     private ServerSocket serverFD;
 
@@ -70,6 +70,25 @@ public class DayTimeServer extends Thread {
                 }
             }
         }
+    }
+
+    /**
+     * Main method to run the DayTimeServer.
+     *
+     * @param args Command-line arguments (not used)
+     */
+    public static void main(String[] args) {
+        // Create and start the DayTimeServer thread
+        DayTimeLocalServer server = new DayTimeLocalServer();
+        server.start();
+
+        // Add shutdown hook to stop the server gracefully
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+            server.stopServer();
+            System.out.println("DayTimeServer has been stopped.");
+        }));
+
+        System.out.println("DayTimeServer is running...");
     }
 
     /**
