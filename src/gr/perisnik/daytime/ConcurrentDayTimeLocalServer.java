@@ -39,8 +39,6 @@ public class ConcurrentDayTimeLocalServer extends Thread {
             // Bind the server socket to the specified address and port, with a backlog of 100
             serverFD.bind(new InetSocketAddress("127.0.0.1", serverPort), 100);
 
-            System.out.println("ConcurrentDayTimeServer is running...");
-
             // Loop to accept and handle incoming connections while running is true
             while (running) {
                 // Accept an incoming connection
@@ -102,6 +100,9 @@ public class ConcurrentDayTimeLocalServer extends Thread {
                 bufferedWriter.write("Local Server says: " + new Date());
                 // Flush the writer to ensure all data is sent
                 bufferedWriter.flush();
+
+                System.out.println("new thread...");
+
                 // Close the BufferedWriter
                 bufferedWriter.close();
                 // Close the connection with the client
