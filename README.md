@@ -4,8 +4,10 @@ This project demonstrates a simple DayTime server and client implementation in J
 
 ## Features
 
-- **DayTime Server**: Listens for connections on port 13 and responds with the current date and time.
-- **DayTime Client**: Connects to the DayTime server to retrieve the date and time.
+- **Concurrent DayTime Local Server**: Listens for connections on port 13 and responds with the current date and time.
+- **DayTime Local Server**: Listens for connections on port 13 and responds with the current date and time.
+- **DayTime Client for Local Server**: Connects to the DayTime Local Server to retrieve the date and time.
+- **DayTime Client**: Connects to the DayTime Server to retrieve the date and time.
 
 ## Prerequisites
 
@@ -13,18 +15,56 @@ This project demonstrates a simple DayTime server and client implementation in J
 
 ## Usage
 
-### Running the DayTime Server
+### Running the Concurrent DayTime Local Server
 
-1. Compile the `DayTimeServer` class:
+1. Compile the `ConcurrentDayTimeLocalServer` class:
 
     ```sh
-    javac gr/perisnik/daytime/DayTimeServer.java
+    javac gr/perisnik/daytime/ConcurrentDayTimeLocalServer.java
     ```
 
-2. Run the `DayTimeServer`:
+2. Run the `ConcurrentDayTimeLocalServer`:
+
+    ```sh
+    java gr.perisnik.daytime.ConcurrentDayTimeLocalServer
+    ```
+
+3. Compile the `DayTimeClientForLocalServer` class:
+
+    ```sh
+    javac gr/perisnik/daytime/DayTimeClientForLocalServer.java
+    ```
+
+2. Run the `DayTimeClientForLocalServer`:
+
+    ```sh
+    java gr.perisnik.daytime.DayTimeClientForLocalServer
+    ```
+
+### Running the DayTime Local Server
+
+1. Compile the `DayTimeLocalServer` class:
+
+    ```sh
+    javac gr/perisnik/daytime/DayTimeLocalServer.java
+    ```
+
+2. Run the `DayTimeLocalServer`:
 
     ```sh
     java gr.perisnik.daytime.DayTimeLocalServer
+    ```
+
+3. Compile the `DayTimeClientForLocalServer` class:
+
+    ```sh
+    javac gr/perisnik/daytime/DayTimeClientForLocalServer.java
+    ```
+
+2. Run the `DayTimeClientForLocalServer`:
+
+    ```sh
+    java gr.perisnik.daytime.DayTimeClientForLocalServer
     ```
 
 ### Running the DayTime Client
